@@ -1,0 +1,8 @@
+{
+  "name": "gitsheet",
+  "version": "1.0.0",
+  "description": "A github commands git sheet",
+  "main": "server.js",
+  "author": "Isioye Mohammed",
+  "license": "MIT"
+}
