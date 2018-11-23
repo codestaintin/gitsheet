@@ -27,6 +27,7 @@ if (config.use_env_variable) {
 } else {
   const { prefix, host, database } = config;
   const mongoUri = `${prefix}://${host}:${config.port}/${database}`;
+  console.log(mongoUri);
   mongoose.connect(mongoUri);
 }
 
