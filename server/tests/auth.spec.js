@@ -4,12 +4,15 @@ import dotenv from 'dotenv';
 import { expect } from 'chai';
 import mongoose from 'mongoose';
 import server from '../../server';
+import config from '../config/config';
 
 dotenv.config();
 
 describe('Tests for auth action', () => {
   before((done) => {
-    mongoose.createConnection(`mongodb://localhost:27017/gitsheet_test`, () => {
+    const { prefix, host, database } = config;
+    const mongoUri = `${prefix}://${host}:${config.port}/${database}`;
+    mongoose.createConnection(mongoUri, () => {
       mongoose.connection.db.dropDatabase(() => {
         done();
       });
@@ -34,7 +37,7 @@ describe('Tests for auth action', () => {
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('token');
       expect(res.body).to.have.property('user');
-      expect(res.body.user).to.have.property('id');
+      expect(res.body.user).to.have.property('_id');
       expect(res.body.user).to.have.property('firstName');
       expect(res.body.user).to.have.property('lastName');
 

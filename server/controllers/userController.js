@@ -3,8 +3,8 @@ import jwt from 'jsonwebtoken';
 import lodash from 'lodash';
 import bcrypt from 'bcrypt';
 import User from '../models/user';
-import validateRegistration from '../utils/registerValidate';
-import validateLogin from '../utils/loginValidate';
+import validateRegistration from '../utils/registerValidator';
+import validateLogin from '../utils/loginValidator';
 
 dotenv.config();
 const secret = process.env.TOKEN_SECRET;
@@ -38,7 +38,7 @@ const userController = {
             newUser.save()
               .then(savedUser => {
                 const user = lodash.pick(savedUser,
-                  ['id', 'firstName', 'lastName']
+                  ['_id', 'firstName', 'lastName']
                 );
                 const token = jwt.sign(user, secret, { expiresIn: 86400 });
                 return res.status(201).json({
@@ -67,8 +67,8 @@ const userController = {
         bcrypt.compare(password, user.password)
           .then(foundUser => {
             if (foundUser) {
-              const payload = lodash.pick(foundUser,
-                ['id', 'firstName', 'lastName']
+              const payload = lodash.pick(user,
+                ['_id', 'firstName', 'lastName']
               );
               const token = jwt.sign(payload, secret, { expiresIn: 86400 });
               return res.status(200).json({

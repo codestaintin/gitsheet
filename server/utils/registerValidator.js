@@ -1,7 +1,7 @@
 import Validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
 
-const registerValidate = (data) => {
+const registerValidator = (data) => {
   const firstName = data.firstName.trim(),
     lastName = data.lastName.trim(),
     email = data.email.trim(),
@@ -55,4 +55,4 @@ const registerValidate = (data) => {
   };
 };
 
-export default registerValidate;
+export default registerValidator;

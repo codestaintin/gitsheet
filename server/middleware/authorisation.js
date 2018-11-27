@@ -4,7 +4,6 @@ import User from '../models/user';
 
 dotenv.config();
 const secret = process.env.TOKEN_SECRET;
-// const { User } = db;
 
 const authorization = {
   verifyToken(req, res, next) {
@@ -16,7 +15,7 @@ const authorization = {
             message: 'Invalid authorisation credentials'
           });
         }
-        User.findById(decoded.id)
+        User.findById(decoded._id)
           .then((user) => {
             if (!user) {
               return res.status(404).json({ message: 'User does not exist' });
@@ -30,16 +29,19 @@ const authorization = {
       res.status(403).json({ message: 'Token not provided' });
     }
   },
-  verifyUser(req, res, next) {
-    User.findById(req.params.id)
+  verifyAdmin(req, res, next) {
+    User.findById(req.decoded._id)
       .then((user) => {
         if (!user) {
-          req.user = user;
+          return res.status(404).json({ message: 'User not found' });
+        }
+        if (user.roles === 'admin') {
           return next();
         }
-        return res.status(404).json({ message: 'User not found' });
-      })
-      .catch(error => res.status(500).json({ error: error.message }));
+        return res.status(403).json({
+          message: 'Unauthorised user'
+        });
+      });
   }
 };
 
