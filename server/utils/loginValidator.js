@@ -1,7 +1,7 @@
 import Validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
 
-const loginValidate = (data) => {
+const loginValidator = (data) => {
   const email = data.email.trim(),
     password = data.password.trim();
   const errors = {};
@@ -24,4 +24,4 @@ const loginValidate = (data) => {
   };
 };
 
-export default loginValidate;
+export default loginValidator;
