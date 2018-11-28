@@ -1,1 +1,18 @@
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../../node_modules/toastr/build/toastr.min.css";
+
+body {
+  margin: 0;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
+}
+
+.custom-btn {
+  color: #fff;
+  background-color: #6E7FF3;
+  border-color: #6E7FF3;
+}
+
+.custom-header {
+  font-family: 'Satisfy', cursive;
+}

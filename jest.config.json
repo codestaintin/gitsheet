@@ -6,6 +6,7 @@
   "collectCoverageFrom": [
     "client/src/**/*.{js,jsx}",
     "!**/node_modules/**",
+    "!shared",
     "!client/src/utils/*.js",
     "!client/src/store.js",
     "!client/src/Index.jsx",
@@ -25,5 +26,5 @@
     "/node_modules/"
   ],
   "testEnvironment": "jest-environment-jsdom",
-  "testPathIgnorePatterns":["api", "__mocks__", "testSetup.js", "server"]
+  "testPathIgnorePatterns":["api", "__mocks__", "testSetup.js", "server", "shared"]
 }

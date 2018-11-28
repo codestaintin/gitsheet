@@ -1,0 +1,5 @@
+const mockData = {
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YmZlY2I3ZGU2N2MzMjE2YjE2MTdjYzUiLCJmaXJzdE5hbWUiOiJTa3VraSIsImxhc3ROYW1lIjoiUGVlc2hhdW4iLCJpYXQiOjE1NDM0MjQ4OTQsImV4cCI6MTU0MzUxMTI5NH0.GfPvop1OZAH2D_GqfDUS94h2LfmxzNgnnZCM89nt2_w'
+};
+
+export default mockData;

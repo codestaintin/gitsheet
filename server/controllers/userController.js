@@ -3,8 +3,8 @@ import jwt from 'jsonwebtoken';
 import lodash from 'lodash';
 import bcrypt from 'bcrypt';
 import User from '../models/user';
-import validateRegistration from '../utils/registerValidator';
-import validateLogin from '../utils/loginValidator';
+import validateRegistration from '../../shared/utils/registerValidator';
+import validateLogin from '../../shared/utils/loginValidator';
 
 dotenv.config();
 const secret = process.env.TOKEN_SECRET;
