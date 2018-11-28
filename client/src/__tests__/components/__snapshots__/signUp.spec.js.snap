@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignUp> should render SignUp component successfully 1`] = `
+<Fragment>
+  <div
+    className="container py-5"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-12"
+      >
+        <h2
+          className="text-center text-white mb-4 custom-header"
+        >
+          Welcome to Git Sheet
+        </h2>
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-6 mx-auto"
+          >
+            <div
+              className="card rounded-0"
+            >
+              <div
+                className="card-header"
+              >
+                <h3
+                  className="mb-0 text-center"
+                >
+                  Sign Up
+                </h3>
+              </div>
+              <div
+                className="card-body"
+              >
+                <form
+                  className="form"
+                  onSubmit={[Function]}
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="firstname"
+                    >
+                      First Name
+                    </label>
+                    <input
+                      className="form-control form-control-lg rounded-0"
+                      name="firstName"
+                      onChange={[Function]}
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      First name field is required
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="lastname"
+                    >
+                      LastName
+                    </label>
+                    <input
+                      className="form-control form-control-lg rounded-0"
+                      name="lastName"
+                      onChange={[Function]}
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      Last name field is required
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="email"
+                    >
+                      Email
+                    </label>
+                    <input
+                      className="form-control form-control-lg rounded-0"
+                      name="email"
+                      onChange={[Function]}
+                      type="email"
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      The email field is required
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="password"
+                    >
+                      Password
+                    </label>
+                    <input
+                      className="form-control form-control-lg rounded-0"
+                      name="password"
+                      onChange={[Function]}
+                      type="password"
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      The password field is required
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="confirmPassword"
+                    >
+                      Confirm Password
+                    </label>
+                    <input
+                      className="form-control form-control-lg rounded-0"
+                      name="confirmPassword"
+                      onChange={[Function]}
+                      type="password"
+                      value=""
+                    />
+                    <div
+                      className="invalid-feedback"
+                    >
+                      The confirm password field is required
+                    </div>
+                  </div>
+                  <button
+                    className="btn custom-btn btn-lg float-right"
+                    type="submit"
+                  >
+                    Sign Up
+                  </button>
+                  <p>
+                    Already a user? 
+                    <Link
+                      replace={false}
+                      to="/signin"
+                    >
+                      Sign In
+                    </Link>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

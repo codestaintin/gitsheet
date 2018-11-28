@@ -1,5 +1,5 @@
 import GitSheet from '../models/gitSheet';
-import validateGitSheet from '../utils/gitSheetValidator';
+import validateGitSheet from '../../shared/utils/gitSheetValidator';
 
 const gitController = {
   create(req, res) {
