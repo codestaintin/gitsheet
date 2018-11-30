@@ -5,23 +5,20 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import signUp from '../../actions/auth/signupAction';
-import registerValidator from '../../../../shared/utils/registerValidator';
+import signIn from '../../actions/auth/singinAction';
+import loginValidator from '../../../../shared/utils/loginValidator';
 
 /**
  * @class SignUp
  *
  * @returns {JSX}
  */
-export class SignUp extends React.Component {
+class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
       email: '',
       password: '',
-      confirmPassword: '',
       errors: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +32,7 @@ export class SignUp extends React.Component {
   }
 
   checkValidity() {
-    const { errors, isValid } = registerValidator(this.state);
+    const { errors, isValid } = loginValidator(this.state);
     if (!isValid) {
       this.setState({ errors });
     }
@@ -47,15 +44,12 @@ export class SignUp extends React.Component {
     if (this.checkValidity()) {
       this.setState({ errors: {} });
       this.setState({
-        firstName: '',
-        lastName: '',
         email: '',
-        password: '',
-        confirmPassword: ''
+        password: ''
       });
-      this.props.signUp(this.state)
+      this.props.signIn(this.state)
         .then(() => {
-          this.props.history.push('/hello');
+          this.props.history.push('/');
         });
     }
   }
@@ -65,6 +59,7 @@ export class SignUp extends React.Component {
   }
 
   render() {
+    // TODO: Add place holder to all form input
     const { errors } = this.state;
     return (
       <Fragment>
@@ -72,54 +67,16 @@ export class SignUp extends React.Component {
           <div className="row">
             <div className="col-md-12">
               <h2 className="text-center text-white mb-4 custom-header">
-                Welcome to Git Sheet
+                Welcome back Git Sheet
               </h2>
               <div className="row">
                 <div className="col-md-6 mx-auto">
                   <div className="card rounded-0">
                     <div className="card-header">
-                      <h3 className="mb-0 text-center">Sign Up</h3>
+                      <h3 className="mb-0 text-center">Sign In</h3>
                     </div>
                     <div className="card-body">
                       <form className="form" onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                          <label htmlFor="firstname">First Name</label>
-                          <input
-                            className={
-                              classnames(
-                                'form-control form-control-lg rounded-0', {
-                                  'is-invalid': errors.firstName
-                                    ? !!errors.firstName : false
-                                }
-                              )
-                            }
-                            name="firstName"
-                            onChange={this.handleChange}
-                            value={this.state.firstName}
-                          />
-                          <div className="invalid-feedback">
-                            First name field is required
-                          </div>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="lastname">LastName</label>
-                          <input
-                            className={
-                              classnames(
-                                'form-control form-control-lg rounded-0', {
-                                  'is-invalid': errors.lastName
-                                    ? !!errors.lastName : false
-                                }
-                              )
-                            }
-                            name="lastName"
-                            onChange={this.handleChange}
-                            value={this.state.lastName}
-                          />
-                          <div className="invalid-feedback">
-                            Last name field is required
-                          </div>
-                        </div>
                         <div className="form-group">
                           <label htmlFor="email">Email</label>
                           <input
@@ -135,6 +92,7 @@ export class SignUp extends React.Component {
                             type="email"
                             onChange={this.handleChange}
                             value={this.state.email}
+                            placeholder="Email"
                           />
                           <div className="invalid-feedback">
                             The email field is required
@@ -162,35 +120,13 @@ export class SignUp extends React.Component {
                             The password field is required
                           </div>
                         </div>
-                        <div className="form-group">
-                          <label htmlFor="confirmPassword">
-                            Confirm Password
-                          </label>
-                          <input
-                            className={
-                              classnames(
-                                'form-control form-control-lg rounded-0', {
-                                  'is-invalid': errors.confirmPassword
-                                    ? !!errors.confirmPassword : false
-                                }
-                              )
-                            }
-                            type="password"
-                            name="confirmPassword"
-                            onChange={this.handleChange}
-                            value={this.state.confirmPassword}
-                          />
-                          <div className="invalid-feedback">
-                            The confirm password field is required
-                          </div>
-                        </div>
                         <button
                           type="submit"
                           className="btn custom-btn btn-lg float-right"
                         >
-                          Sign Up
+                          Sign In
                         </button>
-                        <p>Already a user? <Link to="/signin">Sign In</Link></p>
+                        <p>New here? <Link to="/">Sign Up</Link></p>
                       </form>
                     </div>
                   </div>
@@ -204,16 +140,19 @@ export class SignUp extends React.Component {
   }
 }
 
-SignUp.propTypes = {
-  signUp: PropTypes.func,
+SignIn.propTypes = {
+  signIn: PropTypes.func,
   history: PropTypes.object.isRequired
 };
 
+// TODO: Work here
 const mapStateToProps = state => ({
-  user: state.signUpReducer
+  user: state.signinReducer
 });
 
+// TODO: Work here
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { signUp }, dispatch);
+  { signIn }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+// export default SignIn;

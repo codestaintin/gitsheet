@@ -3,7 +3,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import SignUp from './components/auth/SignUp';
-import Hello from './components/Hello';
+import SignIn from './components/auth/SignIn';
+import Home from './components/Home';
 import store from './store';
 import './styles/index.scss';
 
@@ -11,8 +12,9 @@ const App = () => (
   <BrowserRouter>
     <Fragment>
       <Switch>
-        <Route exact path="/" component={SignUp} />
-        <Route exact path="/hello" component={Hello} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
       </Switch>
     </Fragment>
   </BrowserRouter>
