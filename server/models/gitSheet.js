@@ -2,12 +2,8 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-const GitSheetModel = new Schema({
-  category: {
-    type: String,
-    required: true,
-    trim: true
-  },
+const GitCheatModel = new Schema({
+  category: { type: Schema.Types.ObjectId, ref: 'Category' },
   description: {
     type: String,
     required: true,
@@ -22,4 +18,4 @@ const GitSheetModel = new Schema({
   keywords: [String]
 });
 
-export default mongoose.model('GitSheet', GitSheetModel);
+export default mongoose.model('GitSheet', GitCheatModel);
