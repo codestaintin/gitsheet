@@ -25,17 +25,6 @@ describe('Test cases for all git sheet actions', () => {
   });
 
   describe('GET /api/v1/allSheets when getting all sheets', () => {
-    it('should return a reponse of 403 when user is not authorised', (done) => {
-      request(server)
-        .get('/api/v1/allSheets')
-        .end((err, res) => {
-          if (err) return done(err);
-          expect(res.status).to.equal(403);
-          expect(res.body.message).to.equal('Token not provided');
-          done();
-        });
-    });
-
     it('should return a reponse of 200 when operation is successful',
       (done) => {
         request(server)

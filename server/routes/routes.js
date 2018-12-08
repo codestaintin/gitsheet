@@ -1,5 +1,6 @@
 import userController from '../controllers/userController';
 import gitController from '../controllers/gitController';
+import categoryController from '../controllers/categoryController';
 import authMiddleware from '../middleware/authorisation';
 
 const routes = (router) => {
@@ -16,12 +17,17 @@ const routes = (router) => {
     .post(userController.login);
   router.route('/add')
   /** POST api/v1/users/add- Add git command */
-    .post(authMiddleware.verifyToken,
-      authMiddleware.verifyAdmin,
-      gitController.create);
+    .post(gitController.create);
   router.route('/allSheets')
   /** GET api/v1/users/allSheets- Get all git sheets */
-    .get(authMiddleware.verifyToken, gitController.retrieveAll);
+    .get(gitController.retrieveAll);
+  router.route('/category')
+  /** GET api/v1/users/allSheets- Get all git sheets */
+    .post(categoryController.create);
+
+  router.route('/category/')
+  /** GET api/v1/users/allSheets- Get all git sheets */
+    .get(categoryController.retriveByCategory);
 };
 
 export default routes;

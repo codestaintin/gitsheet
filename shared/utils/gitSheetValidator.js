@@ -1,7 +1,7 @@
 import Validator from 'validator';
 import isEmpty from 'lodash/isEmpty';
 
-const gitSheetValidator = (data) => {
+const gitCheatValidator = (data) => {
   const category = data.category.trim(),
     description = data.description.trim(),
     command = data.description.trim();
@@ -25,4 +25,4 @@ const gitSheetValidator = (data) => {
   };
 };
 
-export default gitSheetValidator;
+export default gitCheatValidator;
