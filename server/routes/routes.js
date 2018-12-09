@@ -25,7 +25,7 @@ const routes = (router) => {
   /** GET api/v1/users/allSheets- Get all git sheets */
     .post(categoryController.create);
 
-  router.route('/category/')
+  router.route('/category')
   /** GET api/v1/users/allSheets- Get all git sheets */
     .get(categoryController.retriveByCategory);
 };

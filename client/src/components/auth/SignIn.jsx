@@ -27,7 +27,7 @@ class SignIn extends React.Component {
 
   componentDidMount() {
     if (window.localStorage.token) {
-      this.props.history.push('/hello');
+      this.props.history.push('/');
     }
   }
 
@@ -59,7 +59,6 @@ class SignIn extends React.Component {
   }
 
   render() {
-    // TODO: Add place holder to all form input
     const { errors } = this.state;
     return (
       <Fragment>
@@ -115,6 +114,7 @@ class SignIn extends React.Component {
                             name="password"
                             onChange={this.handleChange}
                             value={this.state.password}
+                            placeholder="Password"
                           />
                           <div className="invalid-feedback">
                             The password field is required
@@ -126,7 +126,7 @@ class SignIn extends React.Component {
                         >
                           Sign In
                         </button>
-                        <p>New here? <Link to="/">Sign Up</Link></p>
+                        <p>New here? <Link to="/signup">Sign Up</Link></p>
                       </form>
                     </div>
                   </div>
@@ -155,4 +155,3 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   { signIn }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
-// export default SignIn;

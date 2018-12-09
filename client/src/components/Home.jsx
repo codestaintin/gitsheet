@@ -1,8 +1,13 @@
 import React, { Fragment } from 'react';
 import Sidebar from 'react-sidebar';
+import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Header from './common/Header';
 import Search from './common/Search';
 import Card from './common/Card';
+import loadCheatsAction from '../actions/gitCheat/gitCheatActions';
 
 /**
  * @export
@@ -20,15 +25,19 @@ class Home extends React.Component {
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
 
+  componentDidMount() {
+    this.props.loadCheatsAction();
+  }
+
   onSetSidebarOpen(open) {
     this.setState({ sidebarOpen: open });
   }
 
   render() {
+    const { categories, isLoading } = this.props;
     return (
       <Fragment>
-        <Header />
-        <br />
+        <Header sidebarOpen={this.state.sidebarOpen} />
         <Sidebar
           sidebar={(
             <div className="container">
@@ -40,11 +49,7 @@ class Home extends React.Component {
               <p className="text-center">The Awesome Git Sheet</p>
               <hr />
               <p>
-                Whether you are new to git or just needing a referesher,
-              </p>
-              <p>
-              this cheat sheet will help you discover or
-              remember useful git commands.
+                Checkout your git commands
               </p>
             </div>
           )}
@@ -54,8 +59,8 @@ class Home extends React.Component {
           styles={
             {
               sidebar: {
-                background: '#6E7FF3',
-                zIndex: 3,
+                background: '#DCDCDC',
+                zIndex: 3
               }
             }
           }
@@ -72,13 +77,25 @@ class Home extends React.Component {
         <Search />
         &nbsp;
         <div className="container">
+          {isLoading
+        && (
+          <div className="d-flex justify-content-center">
+            <Loader type="ThreeDots" color="#3D4E81" className="text-center" />
+          </div>
+        )
+          }
           <div className="card-columns">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {
+              categories
+              && categories.map(category => {
+                return (
+                  <Card
+                    key={category._id}
+                    {...category}
+                  />
+                );
+              })
+            }
           </div>
         </div>
       </Fragment>
@@ -86,5 +103,18 @@ class Home extends React.Component {
   }
 }
 
+Home.propTypes = {
+  loadCheatsAction: PropTypes.func
+};
 
-export default Home;
+const mapStateToProps = (
+  { gitCheatReducer: { gitCheats: { categories }, isLoading } }) => ({
+  categories,
+  isLoading
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { loadCheatsAction },
+  dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
