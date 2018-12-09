@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Header = () => (
+const Header = ({ sidebarOpen }) => (
   <Fragment>
     <nav
       className="navbar navbar-light"
-      style={{ backgroundColor: '#3D4E81' }}
+      style={{ backgroundColor: '#3D4E81', zIndex: sidebarOpen ? 0 : 100 }}
     >
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -24,5 +25,9 @@ const Header = () => (
     </nav>
   </Fragment>
 );
+
+Header.propTypes = {
+  sidebarOpen: PropTypes.bool.isRequired
+};
 
 export default Header;

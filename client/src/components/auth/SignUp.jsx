@@ -30,7 +30,7 @@ export class SignUp extends React.Component {
 
   componentDidMount() {
     if (window.localStorage.token) {
-      this.props.history.push('/hello');
+      this.props.history.push('/');
     }
   }
 
@@ -55,7 +55,7 @@ export class SignUp extends React.Component {
       });
       this.props.signUp(this.state)
         .then(() => {
-          this.props.history.push('/hello');
+          this.props.history.push('/');
         });
     }
   }
@@ -96,6 +96,7 @@ export class SignUp extends React.Component {
                             name="firstName"
                             onChange={this.handleChange}
                             value={this.state.firstName}
+                            placeholder="First name"
                           />
                           <div className="invalid-feedback">
                             First name field is required
@@ -115,6 +116,7 @@ export class SignUp extends React.Component {
                             name="lastName"
                             onChange={this.handleChange}
                             value={this.state.lastName}
+                            placeholder="Last name"
                           />
                           <div className="invalid-feedback">
                             Last name field is required
@@ -135,6 +137,7 @@ export class SignUp extends React.Component {
                             type="email"
                             onChange={this.handleChange}
                             value={this.state.email}
+                            placeholder="email"
                           />
                           <div className="invalid-feedback">
                             The email field is required
@@ -157,6 +160,7 @@ export class SignUp extends React.Component {
                             name="password"
                             onChange={this.handleChange}
                             value={this.state.password}
+                            placeholder="Password"
                           />
                           <div className="invalid-feedback">
                             The password field is required
@@ -179,6 +183,7 @@ export class SignUp extends React.Component {
                             name="confirmPassword"
                             onChange={this.handleChange}
                             value={this.state.confirmPassword}
+                            placeholder="Confirm Password"
                           />
                           <div className="invalid-feedback">
                             The confirm password field is required

@@ -9,6 +9,7 @@ const Search = () => (
             <input
               className="form-control border-secondary py-2"
               type="search"
+              placeholder="Search for a git command"
             />
             <div className="input-group-append">
               <button className="btn btn-outline-dark" type="button">

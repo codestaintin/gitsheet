@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import SignUp from './components/auth/SignUp';
 import SignIn from './components/auth/SignIn';
 import Home from './components/Home';
+import NotFound from './components/common/NotFound';
 import store from './store';
 import './styles/index.scss';
 
@@ -15,6 +16,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/signup" component={SignUp} />
+        <Route component={NotFound} />
       </Switch>
     </Fragment>
   </BrowserRouter>

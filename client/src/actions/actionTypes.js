@@ -7,5 +7,6 @@ export default keymirror({
   SIGNIN_UNSUCCESSFUL: null,
   LOG_OUT_SUCCESS: null,
   LOAD_CHEATS_SUCCESS: null,
-  LOAD_CHEATS_FAILURE: null
+  LOAD_CHEATS_FAILURE: null,
+  IS_LOADING: null
 });
