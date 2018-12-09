@@ -20,9 +20,11 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebarOpen: false
+      sidebarOpen: false,
+      searchTerm: ''
     };
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +33,10 @@ class Home extends React.Component {
 
   onSetSidebarOpen(open) {
     this.setState({ sidebarOpen: open });
+  }
+
+  handleSearch(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -74,7 +80,7 @@ class Home extends React.Component {
           </button>
         </Sidebar>
         &nbsp;
-        <Search />
+        <Search handleSearch={this.handleSearch} />
         &nbsp;
         <div className="container">
           {isLoading
@@ -87,14 +93,17 @@ class Home extends React.Component {
           <div className="card-columns">
             {
               categories
-              && categories.map(category => {
-                return (
-                  <Card
-                    key={category._id}
-                    {...category}
-                  />
-                );
-              })
+              && categories
+                .filter(category => category.name.toLowerCase()
+                  .includes(this.state.searchTerm.toLowerCase()))
+                .map(category => {
+                  return (
+                    <Card
+                      key={category._id}
+                      {...category}
+                    />
+                  );
+                })
             }
           </div>
         </div>
