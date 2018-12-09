@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Card = ({ name, gitCheats }) => (
   <Fragment>
     <div className="card border-light">
-      <div className="card-header"><b>{name}</b></div>
+      <div className="card-header capitalise"><b>{name}</b></div>
       { gitCheats.map(cheat => {
         return (
           <div key={cheat.command} className="card-body">
@@ -12,7 +12,7 @@ const Card = ({ name, gitCheats }) => (
               {cheat.description}
             </p>
             <p className="card-text command">
-              <b>$ {cheat.command}</b>
+              <b className="command">$ {cheat.command}</b>
             </p>
           </div>
         );

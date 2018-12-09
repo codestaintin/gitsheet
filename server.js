@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import config from './server/config/config';
 import routes from './server/routes/routes';
+import seeder from './server/seeder/seed';
 
 dotenv.config();
 
@@ -53,6 +54,7 @@ app.listen(port, (err) => {
   db.on('open', () => {
     console.info(`Connected to database: ${config.database}`);
     console.log(`🚀🚀 App is running on port: ${port}`);
+    seeder();
   });
 });
 

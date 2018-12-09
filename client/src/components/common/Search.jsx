@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-const Search = () => (
+const Search = ({ handleSearch }) => (
   <Fragment>
     <div className="container">
       <div className="row">
@@ -10,6 +11,8 @@ const Search = () => (
               className="form-control border-secondary py-2"
               type="search"
               placeholder="Search for a git command"
+              name="searchTerm"
+              onChange={handleSearch}
             />
             <div className="input-group-append">
               <button className="btn btn-outline-dark" type="button">
@@ -22,5 +25,9 @@ const Search = () => (
     </div>
   </Fragment>
 );
+
+Search.propTypes = {
+  handleSearch: PropTypes.func
+};
 
 export default Search;
