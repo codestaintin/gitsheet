@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SignUp> should render SignUp component successfully 1`] = `
+exports[`<SignIn> should render SignIn component successfully 1`] = `
 <Fragment>
   <div
     className="container py-5"
@@ -14,7 +14,7 @@ exports[`<SignUp> should render SignUp component successfully 1`] = `
         <h2
           className="text-center text-white mb-4 custom-header"
         >
-          Welcome to Git Sheet
+          Welcome back Git Sheet
         </h2>
         <div
           className="row"
@@ -31,7 +31,7 @@ exports[`<SignUp> should render SignUp component successfully 1`] = `
                 <h3
                   className="mb-0 text-center"
                 >
-                  Sign Up
+                  Sign In
                 </h3>
               </div>
               <div
@@ -45,48 +45,6 @@ exports[`<SignUp> should render SignUp component successfully 1`] = `
                     className="form-group"
                   >
                     <label
-                      htmlFor="firstname"
-                    >
-                      First Name
-                    </label>
-                    <input
-                      className="form-control form-control-lg rounded-0"
-                      name="firstName"
-                      onChange={[Function]}
-                      placeholder="First name"
-                      value=""
-                    />
-                    <div
-                      className="invalid-feedback"
-                    >
-                      First name field is required
-                    </div>
-                  </div>
-                  <div
-                    className="form-group"
-                  >
-                    <label
-                      htmlFor="lastname"
-                    >
-                      LastName
-                    </label>
-                    <input
-                      className="form-control form-control-lg rounded-0"
-                      name="lastName"
-                      onChange={[Function]}
-                      placeholder="Last name"
-                      value=""
-                    />
-                    <div
-                      className="invalid-feedback"
-                    >
-                      Last name field is required
-                    </div>
-                  </div>
-                  <div
-                    className="form-group"
-                  >
-                    <label
                       htmlFor="email"
                     >
                       Email
@@ -95,7 +53,7 @@ exports[`<SignUp> should render SignUp component successfully 1`] = `
                       className="form-control form-control-lg rounded-0"
                       name="email"
                       onChange={[Function]}
-                      placeholder="email"
+                      placeholder="Email"
                       type="email"
                       value=""
                     />
@@ -127,41 +85,19 @@ exports[`<SignUp> should render SignUp component successfully 1`] = `
                       The password field is required
                     </div>
                   </div>
-                  <div
-                    className="form-group"
-                  >
-                    <label
-                      htmlFor="confirmPassword"
-                    >
-                      Confirm Password
-                    </label>
-                    <input
-                      className="form-control form-control-lg rounded-0"
-                      name="confirmPassword"
-                      onChange={[Function]}
-                      placeholder="Confirm Password"
-                      type="password"
-                      value=""
-                    />
-                    <div
-                      className="invalid-feedback"
-                    >
-                      The confirm password field is required
-                    </div>
-                  </div>
                   <button
                     className="btn custom-btn btn-lg float-right"
                     type="submit"
                   >
-                    Sign Up
+                    Sign In
                   </button>
                   <p>
-                    Already a user? 
+                    New here? 
                     <Link
                       replace={false}
-                      to="/signin"
+                      to="/signup"
                     >
-                      Sign In
+                      Sign Up
                     </Link>
                   </p>
                 </form>

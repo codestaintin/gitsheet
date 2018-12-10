@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home> should render the Home component successfully 1`] = `
+<Fragment>
+  <Connect(Header)
+    sidebarOpen={false}
+  />
+  <Sidebar
+    defaultSidebarWidth={0}
+    docked={false}
+    dragToggleDistance={30}
+    onSetOpen={[Function]}
+    open={false}
+    pullRight={true}
+    shadow={true}
+    sidebar={
+      <div
+        className="container"
+      >
+        <img
+          alt="check"
+          className="mx-auto d-block"
+          src="http://res.cloudinary.com/ditm0nduo/image/upload/c_scale,w_45/v1543601618/logo_esyn8n.png"
+        />
+        <p
+          className="text-center"
+        >
+          The Awesome Git Sheet
+        </p>
+        <hr />
+        <p>
+          Checkout your git commands
+        </p>
+      </div>
+    }
+    styles={
+      Object {
+        "sidebar": Object {
+          "background": "#DCDCDC",
+          "zIndex": 3,
+        },
+      }
+    }
+    touch={true}
+    touchHandleWidth={20}
+    transitions={true}
+  >
+    <button
+      className="float-right custom-margin btn btn-link"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="fa fa-angle-double-left"
+      />
+    </button>
+  </Sidebar>
+   
+  <Search
+    handleSearch={[Function]}
+  />
+   
+  <div
+    className="container"
+  >
+    <div
+      className="card-columns"
+    />
+  </div>
+</Fragment>
+`;

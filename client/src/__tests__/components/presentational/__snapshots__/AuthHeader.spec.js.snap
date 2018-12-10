@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AuthHeader> should render the AuthHeader component 1`] = `
+<Fragment>
+  <nav
+    className="navbar navbar-light"
+    style={
+      Object {
+        "backgroundColor": "#3D4E81",
+      }
+    }
+  >
+    <ul
+      className="navbar-nav"
+    >
+      <li
+        className="nav-item"
+      >
+        <Link
+          className="nav-link link"
+          replace={false}
+          to="/"
+        >
+          Git Sheet
+        </Link>
+      </li>
+    </ul>
+    <ul
+      className="nav justify-content-end"
+    >
+      <li
+        className="nav-item"
+      >
+        <Link
+          className="nav-link link"
+          replace={false}
+          to="#"
+        >
+          <button
+            className="btn btn-outline-light"
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Log Out
+          </button>
+        </Link>
+      </li>
+    </ul>
+  </nav>
+</Fragment>
+`;

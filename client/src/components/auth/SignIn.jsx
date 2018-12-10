@@ -13,7 +13,7 @@ import loginValidator from '../../../../shared/utils/loginValidator';
  *
  * @returns {JSX}
  */
-class SignIn extends React.Component {
+export class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -145,12 +145,10 @@ SignIn.propTypes = {
   history: PropTypes.object.isRequired
 };
 
-// TODO: Work here
 const mapStateToProps = state => ({
   user: state.signinReducer
 });
 
-// TODO: Work here
 const mapDispatchToProps = dispatch => bindActionCreators(
   { signIn }, dispatch);
 

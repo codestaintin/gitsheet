@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card> should render the Card component 1`] = `
+<Fragment>
+  <div
+    className="card border-light"
+  >
+    <div
+      className="card-header capitalise"
+    >
+      <b />
+    </div>
+  </div>
+</Fragment>
+`;

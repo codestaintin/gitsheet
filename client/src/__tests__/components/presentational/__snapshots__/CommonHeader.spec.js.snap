@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CommonHeader> should render CommonHeader component 1`] = `
+<Fragment>
+  <nav
+    className="navbar navbar-light"
+    style={
+      Object {
+        "backgroundColor": "#3D4E81",
+        "zIndex": 0,
+      }
+    }
+  >
+    <ul
+      className="navbar-nav"
+    >
+      <li
+        className="nav-item"
+      >
+        <Link
+          className="nav-link link"
+          replace={false}
+          to="/"
+        >
+          Git Sheet
+        </Link>
+      </li>
+    </ul>
+    <ul
+      className="nav justify-content-end"
+    >
+      <li
+        className="nav-item"
+      >
+        <Link
+          className="nav-link link"
+          replace={false}
+          to="/signin"
+        >
+          Sign In
+        </Link>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <Link
+          className="nav-link link"
+          replace={false}
+          to="/signup"
+        >
+          Sign Up
+        </Link>
+      </li>
+    </ul>
+  </nav>
+</Fragment>
+`;

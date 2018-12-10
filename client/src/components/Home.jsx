@@ -16,7 +16,7 @@ import loadCheatsAction from '../actions/gitCheat/gitCheatActions';
  *
  * @extends {React.Component}
  */
-class Home extends React.Component {
+export class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
