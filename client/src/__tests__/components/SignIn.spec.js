@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SignUp } from '../../components/auth/SignUp';
+import { SignIn } from '../../components/auth/SignIn';
 
-describe('<SignUp>', () => {
+describe('<SignIn>', () => {
   const props = {
-    signUp: jest.fn(() => {}),
+    signIn: jest.fn(() => {}),
     history: {
       push: jest.fn(() => {})
     }
   };
-  const tree = shallow(<SignUp {...props} />);
-  it('should render SignUp component successfully', () => {
+  const tree = shallow(<SignIn {...props} />);
+  it('should render SignIn component successfully', () => {
     expect(tree).toMatchSnapshot();
   });
   it('should simulate componentDidMount', () => {

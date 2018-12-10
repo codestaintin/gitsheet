@@ -13,7 +13,7 @@ import CommonHeader from './CommonHeader';
  *
  * @extends {React.Component}
  */
-class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
@@ -37,7 +37,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  logOut: PropTypes.func.isRequired,
+  logOut: PropTypes.func,
   signIn: PropTypes.object,
   sidebarOpen: PropTypes.bool
 };
