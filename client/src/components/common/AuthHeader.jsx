@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const AuthHeader = ({ logout }) => (
+const AuthHeader = ({ logout, sidebarOpen }) => (
   <Fragment>
     <nav
       className="navbar navbar-light"
-      style={{ backgroundColor: '#3D4E81' }}
+      style={{ backgroundColor: '#3D4E81', zIndex: sidebarOpen ? 0 : 100 }}
     >
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -35,7 +35,8 @@ const AuthHeader = ({ logout }) => (
 );
 
 AuthHeader.propTypes = {
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  sidebarOpen: PropTypes.bool
 };
 
 export default AuthHeader;

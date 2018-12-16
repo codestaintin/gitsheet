@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Header from './common/Header';
 import Search from './common/Search';
 import Card from './common/Card';
 import loadCheatsAction from '../actions/gitCheat/gitCheatActions';
@@ -20,19 +19,13 @@ export class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebarOpen: false,
       searchTerm: ''
     };
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
     this.props.loadCheatsAction();
-  }
-
-  onSetSidebarOpen(open) {
-    this.setState({ sidebarOpen: open });
   }
 
   handleSearch(event) {
@@ -43,42 +36,6 @@ export class Home extends React.Component {
     const { categories, isLoading } = this.props;
     return (
       <Fragment>
-        <Header sidebarOpen={this.state.sidebarOpen} />
-        <Sidebar
-          sidebar={(
-            <div className="container">
-              <img
-                className="mx-auto d-block"
-                src="http://res.cloudinary.com/ditm0nduo/image/upload/c_scale,w_45/v1543601618/logo_esyn8n.png"
-                alt="check"
-              />
-              <p className="text-center">The Awesome Git Sheet</p>
-              <hr />
-              <p>
-                Checkout your git commands
-              </p>
-            </div>
-          )}
-          open={this.state.sidebarOpen}
-          onSetOpen={this.onSetSidebarOpen}
-          pullRight
-          styles={
-            {
-              sidebar: {
-                background: '#DCDCDC',
-                zIndex: 3
-              }
-            }
-          }
-        >
-          <button
-            type="button"
-            className="float-right custom-margin btn btn-link"
-            onClick={() => this.onSetSidebarOpen(true)}
-          >
-            <i className="fa fa-angle-double-left" />
-          </button>
-        </Sidebar>
         &nbsp;
         <Search handleSearch={this.handleSearch} />
         &nbsp;
@@ -104,6 +61,14 @@ export class Home extends React.Component {
                     />
                   );
                 })
+            }
+            {
+              isLoading && (categories && !categories.length > 0)
+              && (
+                <h1 className="text-center">
+                  Add new git cheats
+                </h1>
+              )
             }
           </div>
         </div>

@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import signUpReducer from './auth/signupReducer';
-import signInReducer from './auth/signinReducer';
+import authReducer from './auth/authReducer';
 import gitCheatReducer from './gitCheats/gitCheatReducer';
 
 export default combineReducers({
-  signUpReducer,
-  signInReducer,
+  authReducer,
   gitCheatReducer
 });

@@ -1,11 +1,10 @@
 import actionTypes from '../../actions/actionTypes';
 
 const initialState = {
-  success: false,
-  failure: false
+  success: false
 };
 
-const signinReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
   case actionTypes.SIGNIN_SUCCESSFUL:
     return {
@@ -15,16 +14,26 @@ const signinReducer = (state = initialState, action) => {
   case actionTypes.SIGNIN_UNSUCCESSFUL:
     return {
       ...state,
-      failure: action.bool
+      success: action.bool
     };
   case actionTypes.LOG_OUT_SUCCESS:
     return {
       ...state,
       success: false
     };
+  case actionTypes.SIGNUP_SUCCESSFUL:
+    return {
+      ...state,
+      success: action.bool
+    };
+  case actionTypes.SIGNUP_UNSUCCESSFUL:
+    return {
+      ...state,
+      success: action.bool
+    };
   default:
     return state;
   }
 };
 
-export default signinReducer;
+export default authReducer;

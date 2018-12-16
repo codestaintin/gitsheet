@@ -7,16 +7,14 @@ describe('<SignUp>', () => {
     signUp: jest.fn(() => {}),
     history: {
       push: jest.fn(() => {})
+    },
+    user: {
+      success: ''
     }
   };
   const tree = shallow(<SignUp {...props} />);
   it('should render SignUp component successfully', () => {
     expect(tree).toMatchSnapshot();
-  });
-  it('should simulate componentDidMount', () => {
-    const spy = jest.spyOn(tree.instance(), 'componentDidMount');
-    tree.instance().componentDidMount();
-    expect(spy).toHaveBeenCalled();
   });
   it('should simulate handleSubmit', () => {
     const spy = jest.spyOn(tree.instance(), 'handleSubmit');
