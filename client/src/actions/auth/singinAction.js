@@ -18,17 +18,19 @@ const signIn = (user) => dispatch => {
   return axios.post('/api/v1/users/signin', user)
     .then((res) => {
       const { token } = res.data;
-      if (decodeToken(token)) {
+      const validToken = Object.keys(decodeToken(token)).includes('_id');
+      if (validToken) {
         window.localStorage.setItem('token', token);
       }
-      dispatch(signinSuccess(true));
+      dispatch(signinSuccess(validToken));
       toastr.success(res.data.message);
       toastr.clear();
     })
     .catch(error => {
       if (error) {
         dispatch(signinFailure(true));
-        throw (error);
+        toastr.error('Invalid Credentials');
+        toastr.clear();
       }
     });
 };

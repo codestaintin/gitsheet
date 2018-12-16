@@ -62,7 +62,10 @@ const userController = {
       .then(user => {
         if (!user) {
           errors.email = 'User not found';
-          return res.status(404).json(errors);
+          return res.status(404).json({
+            message: 'Invalid credentials',
+            errors
+          });
         }
         bcrypt.compare(password, user.password)
           .then(foundUser => {

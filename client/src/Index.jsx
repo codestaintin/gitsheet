@@ -6,12 +6,14 @@ import SignUp from './components/auth/SignUp';
 import SignIn from './components/auth/SignIn';
 import Home from './components/Home';
 import NotFound from './components/common/NotFound';
+import Header from './components/common/Header';
 import store from './store';
 import './styles/index.scss';
 
 const App = () => (
   <BrowserRouter>
     <Fragment>
+      <Header />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signin" component={SignIn} />

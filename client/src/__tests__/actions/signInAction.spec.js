@@ -18,6 +18,26 @@ describe('Sing in action test', () => {
   beforeEach(() => moxios.install());
   afterEach(() => moxios.uninstall());
 
+  it('should dispatch SIGNIN_UNSUCCESSFUL', (done) => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 500,
+      });
+    });
+    const store = mockStore();
+    const expectedActions = [
+      {
+        type: SIGNIN_UNSUCCESSFUL,
+        bool: true
+      }
+    ];
+    store.dispatch(signIn())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+        done();
+      });
+  });
   it('should dispatch SIGNIN_SUCCESSFUL', (done) => {
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();

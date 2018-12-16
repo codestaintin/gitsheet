@@ -7,7 +7,8 @@ import token from '../__mocks__/mockData';
 
 const {
   SIGNUP_SUCCESSFUL,
-  SIGNUP_UNSUCCESSFUL
+  SIGNUP_UNSUCCESSFUL,
+  SIGNIN_SUCCESSFUL
 } = actionTypes;
 
 const mockStore = configureStore([thunk]);
@@ -29,6 +30,27 @@ describe('Sign up action test', () => {
     const expectedActions = [
       {
         type: SIGNUP_SUCCESSFUL,
+        bool: true
+      }
+    ];
+    store.dispatch(signUp())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+        done();
+      });
+  });
+  it('should dispatch SIGNUP_UNSUCCESSFUL', (done) => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 500,
+        error: {}
+      });
+    });
+    const store = mockStore();
+    const expectedActions = [
+      {
+        type: SIGNUP_UNSUCCESSFUL,
         bool: true
       }
     ];

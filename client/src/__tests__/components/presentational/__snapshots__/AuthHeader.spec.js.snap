@@ -7,6 +7,7 @@ exports[`<AuthHeader> should render the AuthHeader component 1`] = `
     style={
       Object {
         "backgroundColor": "#3D4E81",
+        "zIndex": 0,
       }
     }
   >

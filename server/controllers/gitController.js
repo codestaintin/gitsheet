@@ -8,7 +8,6 @@ const gitController = {
     if (!isValid) {
       return res.status(400).json({ errors });
     }
-
     GitCheat.findOne({
       command: req.body.command
     })

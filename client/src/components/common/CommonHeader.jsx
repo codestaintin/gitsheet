@@ -27,7 +27,7 @@ const Header = ({ sidebarOpen }) => (
 );
 
 Header.propTypes = {
-  sidebarOpen: PropTypes.bool.isRequired
+  sidebarOpen: PropTypes.bool
 };
 
 export default Header;

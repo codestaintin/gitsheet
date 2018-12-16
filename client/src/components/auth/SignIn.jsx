@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -25,12 +25,6 @@ export class SignIn extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    if (window.localStorage.token) {
-      this.props.history.push('/');
-    }
-  }
-
   checkValidity() {
     const { errors, isValid } = loginValidator(this.state);
     if (!isValid) {
@@ -47,10 +41,7 @@ export class SignIn extends React.Component {
         email: '',
         password: ''
       });
-      this.props.signIn(this.state)
-        .then(() => {
-          this.props.history.push('/');
-        });
+      this.props.signIn(this.state);
     }
   }
 
@@ -60,6 +51,10 @@ export class SignIn extends React.Component {
 
   render() {
     const { errors } = this.state;
+    const { user } = this.props;
+    if (user.success) {
+      return <Redirect to="/" />;
+    }
     return (
       <Fragment>
         <div className="container py-5">
@@ -142,11 +137,11 @@ export class SignIn extends React.Component {
 
 SignIn.propTypes = {
   signIn: PropTypes.func,
-  history: PropTypes.object.isRequired
+  user: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  user: state.signinReducer
+  user: state.authReducer
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

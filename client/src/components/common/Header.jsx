@@ -24,11 +24,11 @@ export class Header extends Component {
   }
 
   render() {
-    const { signIn, sidebarOpen } = this.props;
+    const { sidebarOpen, signIn } = this.props;
     return (
       <Fragment>
         { (signIn.success)
-          ? <AuthHeader logout={this.logoutUser} />
+          ? <AuthHeader logout={this.logoutUser} sidebarOpen={sidebarOpen} />
           : <CommonHeader sidebarOpen={sidebarOpen} />
         }
       </Fragment>
@@ -38,12 +38,12 @@ export class Header extends Component {
 
 Header.propTypes = {
   logOut: PropTypes.func,
-  signIn: PropTypes.object,
-  sidebarOpen: PropTypes.bool
+  sidebarOpen: PropTypes.bool,
+  signIn: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  signIn: state.signInReducer
+  signIn: state.authReducer
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ logOut }, dispatch);

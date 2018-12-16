@@ -19,7 +19,7 @@ body {
   border-color: #6E7FF3;
 }
 
-.command {
+.command, .command-text {
   font-family: 'Gamja Flower', cursive;
 }
 
@@ -54,3 +54,10 @@ body {
   color: #5753C9;
 }
 
+
+.command:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: rgb(245, 245, 245);
+  display: inline;
+}

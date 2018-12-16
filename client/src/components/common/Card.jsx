@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Tooltip } from 'react-tippy';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import 'react-tippy/dist/tippy.css';
 
 const Card = ({ name, gitCheats }) => (
   <Fragment>
@@ -11,9 +14,19 @@ const Card = ({ name, gitCheats }) => (
             <p className="card-text">
               {cheat.description}
             </p>
-            <p className="card-text command">
-              <b className="command">$ {cheat.command}</b>
-            </p>
+            <Tooltip
+              title="Click to copy to clipboard"
+              size="small"
+              inertia="false"
+              position="right"
+              trigger="mouseenter"
+            >
+              <CopyToClipboard text={cheat.command}>
+                <p className="card-text command" id="command">
+                  <b className="command">$ {cheat.command}</b>
+                </p>
+              </CopyToClipboard>
+            </Tooltip>
           </div>
         );
       })}

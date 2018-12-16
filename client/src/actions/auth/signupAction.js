@@ -17,17 +17,19 @@ const signUp = (user) => dispatch => {
   return axios.post('/api/v1/users/signup', user)
     .then((res) => {
       const { token } = res.data;
-      if (decodeToken(token)) {
+      const validToken = Object.keys(decodeToken(token)).includes('_id');
+      if (validToken) {
         window.localStorage.setItem('token', token);
       }
-      dispatch(signUpSuccess(true));
+      dispatch(signUpSuccess(validToken));
       toastr.success(res.data.message);
       toastr.clear();
     })
     .catch(error => {
       if (error) {
         dispatch(signUpFailure(true));
-        throw (error);
+        toastr.error('An error occured during this operation');
+        toastr.clear();
       }
     });
 };

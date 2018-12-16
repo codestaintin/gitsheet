@@ -24,9 +24,4 @@ describe('<Home>', () => {
     });
     expect(spy).toHaveBeenCalled();
   });
-  it('should simulate onSetSidebarOpen', () => {
-    const spy = jest.spyOn(tree.instance(), 'onSetSidebarOpen');
-    tree.instance().onSetSidebarOpen();
-    expect(spy).toHaveBeenCalled();
-  });
 });
