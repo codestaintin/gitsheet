@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Sidebar from 'react-sidebar';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
