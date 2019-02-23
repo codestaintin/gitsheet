@@ -77,7 +77,9 @@ export class Home extends React.Component {
 }
 
 Home.propTypes = {
-  loadCheatsAction: PropTypes.func
+  loadCheatsAction: PropTypes.func,
+  categories: PropTypes.any,
+  isLoading: PropTypes.bool
 };
 
 const mapStateToProps = (
